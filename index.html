@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Profile</title>
+    <!--<link href="#" rel="stylesheet>"-->
+    <style>
+
+      aside{
+        overflow:auto;
+      }
+      #profilePicture{
+        cursor:pointer;
+        transition:transform 0.3s ease;
+      }
+
+      #profilePicture:hover{
+        transform:scale(1.1);
+      }
+
+      #logo{
+        transition:opacity 0.3s ease;
+      }
+
+      @keyframes bounce{
+        0%{
+          transform: translateX(0);
+        }
+        50%{
+          transform: translateX(50px);
+        }
+        100%{
+          transform: translateX(0px);
+        }
+    }
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-
+SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://finteger.github.io/portfolio.css" type="text/css">
+  </head>
+  <body>
+    <header>
+      <figure>
+        <img id="profilePicture" src="https://github.com/leonardo-johnc/gif/assets/164218203/28bd032b-8daa-4bca-a2fb-7bcecff999c8" />
+        <figcaption> JC Leonardo </figcaption>
+      </figure>
+      <h1 id="logo">Developer Profile</h1>
+    </header>
+    <div id="container">
+      <nav>
+        <ul>
+          <li>
+            <span>
+              <i class="fa-brands fa-github"></i>
+              <a href="#">Github</a>
+            </span>
+          </li>
+          <li>
+            <span>
+              <i class="fa-brands fa-linkedin"></i>
+              <a href="#">LinkedIn</a>
+            </span>
+          </li>
+          <li>
+            <span>
+              <i class="fa-regular fa-lightbulb"></i>
+              <a href="#">Interests</a>
+            </span>
+          </li>
+        </ul>
+      </nav>
+      <main>
+        <table>
+          <caption>
+            <i class="fa-solid fa-code"></i>Technical Expertise
+          </caption>
+          <thead>
+            <tr>
+              <th>
+                <i class="fa-brands fa-html5"></i>&nbsp;HTML 5
+              </th>
+              <th>
+                <i class="fa-brands fa-css3-alt"></i>&nbsp;CSS 3
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Semantic Tags</td>
+              <td>Grid/Flexbox</td>
+            </tr>
+            <tr>
+              <td>Media Embeds</td>
+              <td>Animations</td>
+            </tr>
+            <tr>
+              <td>Attributes</td>
+              <td>Responsive</td>
+            </tr>
+            <tr>
+              <td>Forms</td>
+              <td>Graphic Design</td>
+            </tr>
+            <tr>
+              <th colspan="2">
+                <i class="fa-brands fa-js"></i>&nbsp;JavaScript
+              </th>
+            </tr>
+            <tr>
+              <td colspan="2">Functions</td>
+            </tr>
+            <tr>
+              <td colspan="2">Event Handlers</td>
+            </tr>
+            <tr>
+              <td colspan="2">Loops</td>
+            </tr>
+            <tr>
+              <td colspan="2">Control Flows</td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <h2 id="About">About Me</h2>
+          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+        </div>
+      </main>
+      <aside>
+        <blockquote>
+          <q id="quote1">JC worked great in our development team. Highly recommend. </q>
+          <br>
+          <br>
+          <em id="person1">-&nbsp;Google engineer</em>
+        </blockquote>
+        <br>
+        <blockquote>
+          <q id="quote2"> JC is a master at using the best IDE in the market, MS Word. </q>
+          <br>
+          <br>
+          <em id="person2">-&nbsp;TechMogul.com</em>
+        </blockquote>
+        <br>
+        <blockquote>
+          <q id="quote3"> Subscribe to Todd Nash on Youtube for more HTML/CSS tips. </q>
+          <br>
+          <br>
+          <em id="person3">-&nbsp;A dude in Todd's class.</em>
+        </blockquote>
+      </aside>
+    </div>
+    <footer>
+      <div>
+        <font color="#3f1a30">Phone: </font>
+        <a href="tel:+15555555555">555-555-5555</a>
+      </div>
+      <div>
+        <font color="#3f1a30">Email: </font>
+        <a href="mailto:MyExampleEmail.gmail.com">MyExampleEmail.gmail.com
+      </div>
+    </footer>
+    <!--I looked up on how to change the font color at "https://www.freecodecamp.org/news/how-to-change-text-color-in-html/" since the default font color was set to black and it cannot be seen well with the background color I set. I hope this was alright.-->
+  </body>
+  <script>
+    var td = document.querySelectorAll('td');
+    td.forEach(function(element){
+      var bullet = document.createTextNode('\u2022 ');
+      element.prepend(bullet);
+    });
+
+    const profilePicture = document.getElementById('profilePicture');
+    const logo=document.getElementById('logo');
+    const originalText = logo.innerText;
+    const hoverText='Welcome To My Profile';
+
+  profilePicture.addEventListener('mouseover', () => {
+      logo.style.opacity = '0';
+      logo.style.animation = 'bounce 3s infinite';
+      setTimeout(() => {
+        logo.innerText = hoverText;
+        logo.style.opacity = '1';
+    }, 300);
+
+  });
+
+  profilePicture.addEventListener('mouseout', () => {
+      logo.style.opacity = '0';
+      logo.style.animation = 'none';
+      setTimeout(() => {
+        logo.innerText = originalText;
+        logo.style.opacity = '1';
+    }, 300);
+
+  });
+  </script>
+</html>
