@@ -12,20 +12,12 @@ SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSC
     <script src="https://finteger.github.io/developer-profile.js"></script>
     <style>
       
+      #table tbody tr{
+        transition:opacity 5s ease-in;
+      }
+
       aside{
         overflow:auto;
-      }
-      #profilePicture{
-        cursor:pointer;
-        transition:transform 0.3s ease;
-      }
-
-      #profilePicture:hover{
-        transform:scale(1.1);
-      }
-
-      #logo{
-        transition:opacity 0.3s ease;
       }
 
       @keyframes bounce{
@@ -39,6 +31,47 @@ SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSC
           transform: translateX(0px);
         }
     }
+      @keyframes changeBackground{
+        0%{ 
+          background-color:lightblue;
+          opacity:0;
+        }
+        100%{
+          background-color:transparent;
+          opacity:1;
+        }
+      }
+
+      table tr td{
+        position:relative;
+        visibility:hidden;
+        display:none;
+      }
+
+      table tr th{
+        min-width:120px;
+      }
+
+      .changeBackground{
+        animation: changeBackground 2s;
+        visibility: visible;
+        display: table-cell;
+      }
+
+      .info{
+        position:absolute;
+        top:-5px;
+        left:30%;
+        font-weight:900;
+        font-style:italic;
+        color:black;
+        opacity:0.2;
+        margin:5px;
+        background:none;
+        padding:6px;
+        width:fit-content;
+        animation: bounce 5s ease-in-out;
+      }
 
     </style>
   </head>
@@ -74,7 +107,7 @@ SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSC
         </ul>
       </nav>
       <main>
-        <table>
+        <table id="table">
           <caption>
             <i class="fa-solid fa-code"></i>Technical Expertise
           </caption>
@@ -164,4 +197,29 @@ SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSC
     </footer>
     <!--I looked up on how to change the font color at "https://www.freecodecamp.org/news/how-to-change-text-color-in-html/" since the default font color was set to black and it cannot be seen well with the background color I set. I hope this was alright.-->
   </body>
+  <script>
+      const tableData = document.querySelectorAll("#table tbody tr td");
+      
+      for(let i = 0; i < tableData.length; i++){
+        setTimeout(() =>{
+            tableData[i].classList.add('changeBackground');
+
+            switch(i){
+            case 8:
+              tableData[i].insertAdjacentHTML('beforeend', '<div class="info">myFunction = (p1, p2) => p1 * p2</div>');
+              break;
+            case 9:
+              tableData[i].insertAdjacentHTML('beforeend', '<div class="info">onclick="alert("Clicked!")"</div>');
+              break;
+            case 10:
+              tableData[i].insertAdjacentHTML('beforeend', '<div class="info">for(var i=0; i < x.length; i++){}</div>');
+              break;
+            case 11:
+              tableData[i].insertAdjacentHTML('beforeend', '<div class="info">true ? myFunction :  null;</div>')
+              break;
+          }
+
+        }, i * 300);
+      }
+  </script>
 </html>
