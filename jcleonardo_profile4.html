@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Developer Profile</title>
     <!--<link href="#" rel="stylesheet>"-->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-
+SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://finteger.github.io/portfolio2.css" type="text/css">
+    <script src="https://finteger.github.io/developer-profile.js"></script>
     <style>
       
       aside{
@@ -36,9 +41,6 @@
     }
 
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-
-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://finteger.github.io/portfolio.css" type="text/css">
   </head>
   <body>
     <header>
@@ -162,36 +164,4 @@ SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSC
     </footer>
     <!--I looked up on how to change the font color at "https://www.freecodecamp.org/news/how-to-change-text-color-in-html/" since the default font color was set to black and it cannot be seen well with the background color I set. I hope this was alright.-->
   </body>
-  <script>
-    var td = document.querySelectorAll('td');
-    td.forEach(function(element){
-      var bullet = document.createTextNode('\u2022 ');
-      element.prepend(bullet);
-    });
-
-    const profilePicture = document.getElementById('profilePicture');
-    const logo=document.getElementById('logo');
-    const originalText = logo.innerText;
-    const hoverText='Welcome To My Profile';
-
-  profilePicture.addEventListener('mouseover', () => {
-      logo.style.opacity = '0';
-      logo.style.animation = 'bounce 3s infinite';
-      setTimeout(() => {
-        logo.innerText = hoverText;
-        logo.style.opacity = '1';
-    }, 300);
-
-  });
-
-  profilePicture.addEventListener('mouseout', () => {
-      logo.style.opacity = '0';
-      logo.style.animation = 'none';
-      setTimeout(() => {
-        logo.innerText = originalText;
-        logo.style.opacity = '1';
-    }, 300);
-
-  });
-  </script>
 </html>
